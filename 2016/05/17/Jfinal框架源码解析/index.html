@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Caesarxp">
-  <title>相册 | 熊大虾的博客</title>
+  <title>Jfinal框架解析 | 熊大虾的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="图片来自instagram，正在加载中…">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="https://github.com/Caesarxp/instagram/index.html">
+  <meta name="description" content="JFinal优缺点启示JFinal优点是体积小，但又拥有strut2大多数功能，严格遵循COC原则，也就是零配置。而且支持多种Plugin。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jfinal框架解析">
+<meta property="og:url" content="https://github.com/Caesarxp/2016/05/17/Jfinal框架源码解析/index.html">
 <meta property="og:site_name" content="熊大虾的博客">
-<meta property="og:description" content="图片来自instagram，正在加载中…">
-<meta property="og:updated_time" content="2017-03-10T18:48:05.492Z">
+<meta property="og:description" content="JFinal优缺点启示JFinal优点是体积小，但又拥有strut2大多数功能，严格遵循COC原则，也就是零配置。而且支持多种Plugin。">
+<meta property="og:image" content="http://i.imgur.com/aWC8isH.png">
+<meta property="og:image" content="http://i.imgur.com/rKkIpng.png">
+<meta property="og:updated_time" content="2017-08-16T09:09:35.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="图片来自instagram，正在加载中…">
+<meta name="twitter:title" content="Jfinal框架解析">
+<meta name="twitter:description" content="JFinal优缺点启示JFinal优点是体积小，但又拥有strut2大多数功能，严格遵循COC原则，也就是零配置。而且支持多种Plugin。">
+<meta name="twitter:image" content="http://i.imgur.com/aWC8isH.png">
   
     <link rel="alternative" href="/atom.xml" title="熊大虾的博客" type="application/atom+xml">
   
@@ -175,25 +178,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-instagram" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Jfinal框架源码解析" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      Jfinal框架解析
     </h1>
   
 
+        
+        <a href="/2016/05/17/Jfinal框架源码解析/" class="archive-article-date">
+  	<time datetime="2016-05-17T09:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-17</time><span id="busuanzi_container_page_pv" style="color:DarkGray;display:inline;">
+      阅读 <span id="busuanzi_value_page_pv"></span> 热度
+    </span>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class="instagram" data-client-id="04ce78f0dc004279bfe8a86438acc6bb" data-user-id="438522285"><br>    <a href="https://www.instagram.com/qq528454264/" target="_blank" class="open-ins">图片来自instagram，正在加载中…</a><br></div></p>
-<script src="/js/jquery.lazyload.js"></script>
-<script src="/js/instagram.js"></script>
+        <h3 id="JFinal优缺点启示"><a href="#JFinal优缺点启示" class="headerlink" title="JFinal优缺点启示"></a>JFinal优缺点启示</h3><p>JFinal优点是体积小，但又拥有strut2大多数功能，严格遵循COC原则，也就是零配置。而且支持多种Plugin。</p>
+<a id="more"></a> 
+<p><strong>解析</strong>：JFinal其实是利用Java类直接加载各个部件，从而避开了插件，一般来，配置文件，需要框架去读取，这本身就会影响系统的效率，而且，当配置文件的更改的时候，服务器大多时候需要重启，重新读取配置文件，将配置文件加载到内存中。</p>
+<p><em>由于JFinal是利用继承JFinalConfig的类加载一些配置类，一些框架的信息也直接通过配置类进行加载。</em></p>
+<ul>
+<li>JFinal–单例模式，饱汉模式  </li>
+<li><p>initHandler() 初始化处理器   </p>
+<p><code>HandlerFactory.getHandler(Config.getHandlers().getHandlerList(), actionHandler);</code>  </p>
+</li>
+</ul>
+<p>查看配置Config类中是否配置了处理器，而多个处理器会被装入一个List集合中</p>
+<ul>
+<li>HandlerFactory–处理器工厂       </li>
+</ul>
+<p><img src="http://i.imgur.com/aWC8isH.png" alt=""></p>
+<p>ActionMapping—action映射<br>JFinalFilter类初始化</p>
+<p>createJFinalConfig(filterConfig.getInitParameter(“configClass”));        //从filterConfig中得到JFinalConfig类<br>if (jfinal.init(jfinalConfig, filterConfig.getServletContext()) == false)<br>            throw new RuntimeException(“JFinal init error!”);       //对JFinal类进行初始化</p>
+<p>故可以看出整个JFinal框架源起filterConfig，也就是内置对象Config，</p>
+<ul>
+<li><strong>JFinal的核心机制—过滤器（JFinalFilter）</strong></li>
+</ul>
+<p>和struts2一样，JFinal需要在web.xml配置过滤器，还需要配置一个configClass初始值。</p>
+<pre><code>&lt;filter&gt;
+    &lt;filter-name&gt;jfinal&lt;/filter-name&gt;
+    &lt;filter-class&gt;com.jfinal.core.JFinalFilter&lt;/filter-class&gt;
+&lt;init-param&gt;
+    &lt;param-name&gt;configClass&lt;/param-name&gt;
+    &lt;param-value&gt;demo.DemoConfig&lt;/param-value&gt;
+&lt;/init-param&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;jfinal&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><p><strong>工作原理</strong>：当服务器启动，就会将web.xml所有的配置信息读取到内存中，JFinalFilter作为最先拦截请求的类，首先会初始化一些值，比如创建JFinalconfig。</p>
+<p><img src="http://i.imgur.com/rKkIpng.png" alt=""></p>
+<p>再对请求过滤的时候，框架自身会对请求的编码进行默认设置为UTF-8，在查看config类中是否配置了Handle（处理器），如果在config类中配置处理器，会先对请求进行处理，最后将请求往下一个处理器类中，直达处理器类处理完请求，最后将由ActionHandle类来处理请求，而这又是JFinal框架的重点，其中会有Interceptor（拦截器）进行处理，直接AOP面向切面编程。利用Intercept类做到无侵入式编程，直接织入事务中，最后通过注释找到相应的路径传入到相应的Control类中，再由control类将请求分发给相应的业务层，这也是JFinal框架大致的流程。</p>
+<p>2、JFinal的配置类—JFinalConfig类</p>
+<p>3、JFinal的处理器的配置—Handle类。</p>
+<p>4、JFinal的ActionHandle处理器源码解析</p>
+<p>5、JFinal的AOP—Intercept工作原理</p>
+<p>6、JFinal的ORM框架解析</p>
+<p>7、JFinal的缓存机制</p>
+<p>8、JFinal的插件配置解析—几种常用插件</p>
+<p>9、JFinal的校验–Validator</p>
+<p>10、JFinal的生产中的应用。</p>
+
       
 
       
@@ -227,7 +282,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术/" class="article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -277,7 +358,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://github.com/Caesarxp/instagram/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://github.com/Caesarxp/2016/05/17/Jfinal框架源码解析/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,6 +370,20 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2016/05/28/磨刀不误砍柴工-Eclipse插件推荐以及安装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          磨刀不误砍柴工-Eclipse插件推荐以及安装
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 
 
@@ -299,8 +394,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://github.com/Caesarxp/instagram/index.html", 
-    sourceId: "instagram",
+    url: "https://github.com/Caesarxp/2016/05/17/Jfinal框架源码解析/", 
+    sourceId: "Jfinal框架源码解析",
     productKey: "cb2f70f3317a42f3a346e63c6f932db2",
     target: "cloud-tie-wrapper"
   };
@@ -313,6 +408,30 @@
   
 
  <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JFinal优缺点启示"><span class="toc-number">1.</span> <span class="toc-text">JFinal优缺点启示</span></a></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
              
         <!-- 目录内容结束 -->
 
@@ -341,7 +460,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
