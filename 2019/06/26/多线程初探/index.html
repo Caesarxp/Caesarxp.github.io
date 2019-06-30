@@ -6,20 +6,44 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Caesarxp">
-  <title>about | 熊大虾的博客</title>
+  <title>Java基础回顾（3）-多线程 | 熊大虾的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文链接：&amp;lt;%= post.title %&amp;gt; 作者：熊鹏 出处：http://Caesarxp.github.io/本文基于 知识共享署名-相同方式共享 4.0 国际许可协议发布，欢迎转载，演绎或用于商业目的，但是必须保留本文的署名熊鹏及链接。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://github.com/Caesarxp/about/index.html">
+  <meta name="description" content="多线程多线程会出现死锁，资源竞争的问题，不是所有的场景都适应于多线程，因为线程之间的切换，也需要消耗cpu大量的资源。
+创建线程三种方式
+创建 Thread 的子类，Tread thread = new Thread();thread.start();
+实现 Runnable 接口
+线程池创建，通过Callable和Future创建线程
+
+
+sleep() 、join（）、yield（）区别
+当高">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础回顾（3）-多线程">
+<meta property="og:url" content="https://github.com/Caesarxp/2019/06/26/多线程初探/index.html">
 <meta property="og:site_name" content="熊大虾的博客">
-<meta property="og:description" content="本文链接：&amp;lt;%= post.title %&amp;gt; 作者：熊鹏 出处：http://Caesarxp.github.io/本文基于 知识共享署名-相同方式共享 4.0 国际许可协议发布，欢迎转载，演绎或用于商业目的，但是必须保留本文的署名熊鹏及链接。">
-<meta property="og:image" content="https://avatars3.githubusercontent.com/u/12079249?v=3&s=460">
-<meta property="og:updated_time" content="2017-03-10T16:25:49.966Z">
+<meta property="og:description" content="多线程多线程会出现死锁，资源竞争的问题，不是所有的场景都适应于多线程，因为线程之间的切换，也需要消耗cpu大量的资源。
+创建线程三种方式
+创建 Thread 的子类，Tread thread = new Thread();thread.start();
+实现 Runnable 接口
+线程池创建，通过Callable和Future创建线程
+
+
+sleep() 、join（）、yield（）区别
+当高">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/285763/201905/285763-20190529153249864-489122353.png">
+<meta property="og:updated_time" content="2019-06-30T07:26:25.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="本文链接：&amp;lt;%= post.title %&amp;gt; 作者：熊鹏 出处：http://Caesarxp.github.io/本文基于 知识共享署名-相同方式共享 4.0 国际许可协议发布，欢迎转载，演绎或用于商业目的，但是必须保留本文的署名熊鹏及链接。">
-<meta name="twitter:image" content="https://avatars3.githubusercontent.com/u/12079249?v=3&s=460">
+<meta name="twitter:title" content="Java基础回顾（3）-多线程">
+<meta name="twitter:description" content="多线程多线程会出现死锁，资源竞争的问题，不是所有的场景都适应于多线程，因为线程之间的切换，也需要消耗cpu大量的资源。
+创建线程三种方式
+创建 Thread 的子类，Tread thread = new Thread();thread.start();
+实现 Runnable 接口
+线程池创建，通过Callable和Future创建线程
+
+
+sleep() 、join（）、yield（）区别
+当高">
+<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/285763/201905/285763-20190529153249864-489122353.png">
   
     <link rel="alternative" href="/atom.xml" title="熊大虾的博客" type="application/atom+xml">
   
@@ -177,20 +201,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-多线程初探" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      about
+      Java基础回顾（3）-多线程
     </h1>
   
 
         
-        <a href="/about/index.html" class="archive-article-date">
-  	<time datetime="2016-03-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time><span id="busuanzi_container_page_pv" style="color:DarkGray;display:inline;">
+        <a href="/2019/06/26/多线程初探/" class="archive-article-date">
+  	<time datetime="2019-06-26T09:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time><span id="busuanzi_container_page_pv" style="color:DarkGray;display:inline;">
       阅读 <span id="busuanzi_value_page_pv"></span> 热度
     </span>
 </a>
@@ -201,9 +225,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div style="font-size:12px;border-bottom: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; BACKGROUND: #f6f6f6; HEIGHT: 120px; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid"><br><div style="MARGIN-TOP: 10px; FLOAT: left; MARGIN-LEFT: 5px; MARGIN-RIGHT: 10px"><br><br><img alt="" src="https://avatars3.githubusercontent.com/u/12079249?v=3&s=460" width="90" height="100"><br></div>
+        <h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>多线程会出现死锁，资源竞争的问题，不是所有的场景都适应于多线程，因为线程之间的切换，也需要消耗cpu大量的资源。</p>
+<h4 id="创建线程三种方式"><a href="#创建线程三种方式" class="headerlink" title="创建线程三种方式"></a>创建线程三种方式</h4><ul>
+<li>创建 Thread 的子类，Tread thread = new Thread();thread.start();</li>
+<li>实现 Runnable 接口</li>
+<li>线程池创建，通过Callable和Future创建线程</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/285763/201905/285763-20190529153249864-489122353.png" alt="线程池的生命周期"></p>
+<h4 id="sleep-、join（）、yield（）区别"><a href="#sleep-、join（）、yield（）区别" class="headerlink" title="sleep() 、join（）、yield（）区别"></a>sleep() 、join（）、yield（）区别</h4><ul>
+<li>当高优先级的线程sleep，那低优先级的线程获得执行权限。</li>
+<li>yield()方法和sleep()方法差不多，但只能使同优先级或者高优先级的线程得到执行机会，当前线程调用yield方法，会回到可执行状态。</li>
+<li>join，让一个线程加入到另一个线程中，保证该线程执行停止之前，其他线程执行完成</li>
+</ul>
+<h4 id="线程池的几种方式"><a href="#线程池的几种方式" class="headerlink" title="线程池的几种方式"></a>线程池的几种方式</h4><ul>
+<li>固定长度的线程池，newFixedThreadPool(int nThreads)，newScheduledThreadPool(int corePoolSize)</li>
+<li>创建一个可缓存的线程池，newCachedThreadPool()</li>
+<li>创建一个单线程的线程池，newSingleThreadExecutor()</li>
+</ul>
+<h4 id="线程池的几个重要参数"><a href="#线程池的几个重要参数" class="headerlink" title="线程池的几个重要参数"></a>线程池的几个重要参数</h4><ul>
+<li>corePollSize：核心线程数</li>
+<li>maximumPoolSize：最大线程数</li>
+<li>keepAliveTime：空闲的线程保留的时间</li>
+<li>TimeUnit：空闲线程的保留时间单位</li>
+<li>BlockingQueue<runnable>：阻塞队列</runnable></li>
+<li>ThreadFactory：线程工厂</li>
+<li>RejectedExecutionHandler：队列已满</li>
+</ul>
+<h4 id="未解决几个问题"><a href="#未解决几个问题" class="headerlink" title="未解决几个问题"></a>未解决几个问题</h4><ul>
+<li>线程池源码</li>
+<li>自己实现简单的线程池</li>
+<li>解决生产者消费者问题</li>
+<li>锁的问题，死锁，分布式锁的实现</li>
+</ul>
 
-<div style="LINE-HEIGHT: 200%; MARGIN-TOP: 10px; COLOR: #000000"><br>本文链接：<a href="<%= post.link %>">&lt;%= post.title %&gt;</a> <br><br>作者：<br><a href="http://Caesarxp.github.io/" target="_blank" rel="external">熊鹏</a> <br>出处：<br><a href="http://Caesarxp.github.io/" target="_blank" rel="external">http://Caesarxp.github.io/</a><br><br>本文基于<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> 知识共享署名-相同方式共享 4.0 </a><br>国际许可协议发布，欢迎转载，演绎或用于商业目的，但是必须保留本文的署名<br><a href="http://Caesarxp.github.io/" target="_blank" rel="external">熊鹏</a>及链接。<br></div><br></div>
       
 
       
@@ -237,7 +291,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术/" class="article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -287,7 +367,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://github.com/Caesarxp/about/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://github.com/Caesarxp/2019/06/26/多线程初探/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -299,11 +379,64 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/11/restfulreq/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">响应码规范设计</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "https://github.com/Caesarxp/2019/06/26/多线程初探/", 
+    sourceId: "多线程初探",
+    productKey: "cb2f70f3317a42f3a346e63c6f932db2",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+  
+
+  
 
  <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程"><span class="toc-number">1.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建线程三种方式"><span class="toc-number">1.0.1.</span> <span class="toc-text">创建线程三种方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sleep-、join（）、yield（）区别"><span class="toc-number">1.0.2.</span> <span class="toc-text">sleep() 、join（）、yield（）区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程池的几种方式"><span class="toc-number">1.0.3.</span> <span class="toc-text">线程池的几种方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程池的几个重要参数"><span class="toc-number">1.0.4.</span> <span class="toc-text">线程池的几个重要参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#未解决几个问题"><span class="toc-number">1.0.5.</span> <span class="toc-text">未解决几个问题</span></a></li></ol></li></ol></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
              
         <!-- 目录内容结束 -->
 
@@ -332,7 +465,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

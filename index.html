@@ -176,6 +176,118 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-多线程初探" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/26/多线程初探/">Java基础回顾（3）-多线程</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/26/多线程初探/" class="archive-article-date">
+  	<time datetime="2019-06-26T09:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time><span id="busuanzi_container_page_pv" style="color:DarkGray;display:inline;">
+      阅读 <span id="busuanzi_value_page_pv"></span> 热度
+    </span>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>多线程会出现死锁，资源竞争的问题，不是所有的场景都适应于多线程，因为线程之间的切换，也需要消耗cpu大量的资源。</p>
+<h4 id="创建线程三种方式"><a href="#创建线程三种方式" class="headerlink" title="创建线程三种方式"></a>创建线程三种方式</h4><ul>
+<li>创建 Thread 的子类，Tread thread = new Thread();thread.start();</li>
+<li>实现 Runnable 接口</li>
+<li>线程池创建，通过Callable和Future创建线程</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/285763/201905/285763-20190529153249864-489122353.png" alt="线程池的生命周期"></p>
+<h4 id="sleep-、join（）、yield（）区别"><a href="#sleep-、join（）、yield（）区别" class="headerlink" title="sleep() 、join（）、yield（）区别"></a>sleep() 、join（）、yield（）区别</h4><ul>
+<li>当高优先级的线程sleep，那低优先级的线程获得执行权限。</li>
+<li>yield()方法和sleep()方法差不多，但只能使同优先级或者高优先级的线程得到执行机会，当前线程调用yield方法，会回到可执行状态。</li>
+<li>join，让一个线程加入到另一个线程中，保证该线程执行停止之前，其他线程执行完成</li>
+</ul>
+<h4 id="线程池的几种方式"><a href="#线程池的几种方式" class="headerlink" title="线程池的几种方式"></a>线程池的几种方式</h4><ul>
+<li>固定长度的线程池，newFixedThreadPool(int nThreads)，newScheduledThreadPool(int corePoolSize)</li>
+<li>创建一个可缓存的线程池，newCachedThreadPool()</li>
+<li>创建一个单线程的线程池，newSingleThreadExecutor()</li>
+</ul>
+<h4 id="线程池的几个重要参数"><a href="#线程池的几个重要参数" class="headerlink" title="线程池的几个重要参数"></a>线程池的几个重要参数</h4><ul>
+<li>corePollSize：核心线程数</li>
+<li>maximumPoolSize：最大线程数</li>
+<li>keepAliveTime：空闲的线程保留的时间</li>
+<li>TimeUnit：空闲线程的保留时间单位</li>
+<li>BlockingQueue<runnable>：阻塞队列</runnable></li>
+<li>ThreadFactory：线程工厂</li>
+<li>RejectedExecutionHandler：队列已满</li>
+</ul>
+<h4 id="未解决几个问题"><a href="#未解决几个问题" class="headerlink" title="未解决几个问题"></a>未解决几个问题</h4><ul>
+<li>线程池源码</li>
+<li>自己实现简单的线程池</li>
+<li>解决生产者消费者问题</li>
+<li>锁的问题，死锁，分布式锁的实现</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术/" class="article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/26/多线程初探/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+ <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+
+  
     <article id="post-restfulreq" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -897,83 +1009,6 @@
         <!-- 目录内容结束 -->
 
   
-    <article id="post-写给五年后自己的一封信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/06/写给五年后自己的一封信/">写给五年后自己的一封信</a>
-    </h1>
-  
-
-        
-        <a href="/2016/09/06/写给五年后自己的一封信/" class="archive-article-date">
-  	<time datetime="2016-09-06T12:46:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-06</time><span id="busuanzi_container_page_pv" style="color:DarkGray;display:inline;">
-      阅读 <span id="busuanzi_value_page_pv"></span> 热度
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/1799617-f6d645a100e13768.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="见字如面"></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/散文/" class="article-tag-list-link color3">散文</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/06/写给五年后自己的一封信/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
- <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -988,7 +1023,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 熊大虾
+    		&copy; 2019 熊大虾
     	</div>
       	
     </div>
